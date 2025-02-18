@@ -1,10 +1,4 @@
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $inputText = $_POST['text'];
-    $sortingOrder = $_POST['sorting_order']; 
-    $displayLimit = $_POST['display_limit'];
-    }
-?>
+
 
 <!DOCTYPE html>
 <html>
