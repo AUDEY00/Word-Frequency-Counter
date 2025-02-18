@@ -52,5 +52,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         <input type="submit" value="Calculate Word Frequency">
     </form>
+    <?php if (!empty($wordFrequency)): ?>
+        <h2>Word Frequency Result</h2>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <tr>
+                <th>Word</th>
+                <th>Count</th>
+            </tr>
+            <?php foreach ($wordFrequency as $word => $count): ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($word); ?></td>
+                    <td><?php echo $count; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    <?php endif; ?>
 </body>
 </html>
