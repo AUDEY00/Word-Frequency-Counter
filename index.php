@@ -1,9 +1,29 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $inputText = $_POST['text'];
-    $sortingOrder = $_POST['sorting_order']; 
-    $displayLimit = $_POST['display_limit'];
+function cleanText($text) {
+    $text = strtolower($text);
+    $text = preg_replace('/[^a-z0-9\s]/', '', $text);
+    return $text;
+}
+
+function getWordFrequency($text) {
+    $words = explode(" ", cleanText($text));
+    $wordCounts = array_count_values($words);
+    arsort($wordCounts);
+    return $wordCounts;
+}
+
+// Handle form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $text = $_POST["text"] ?? "";
+    $sortOrder = $_POST["sort"] ?? "desc";
+    $limit = $_POST["limit"] ?? 10;
+    
+    $wordFrequency = getWordFrequency($text);
+    if ($sortOrder == "asc") {
+        asort($wordFrequency);
     }
+    $wordFrequency = array_slice($wordFrequency, 0, $limit, true);
+}
 ?>
 
 <!DOCTYPE html>
