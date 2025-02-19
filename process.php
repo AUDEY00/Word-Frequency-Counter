@@ -51,7 +51,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     foreach ($wordFrequency as $word => $frequency) {
         echo "<tr><td>" . htmlspecialchars($word) . "</td><td>" . $frequency . "</td></tr>";
     }
-
     echo "</table>";
 }
 ?>
