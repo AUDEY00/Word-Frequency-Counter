@@ -1,7 +1,7 @@
 
 <?php
 function remove_stop_words($words) {
-    $stop_words = ["and", "the", "of", "in", "a", "to", "is", "with", "on", "for", "by", "at", "be", "an", "that", "this"];
+    $stop_words = ["and", "the", "of", "in", "a", "to", "is", "with", "on", "for", "by", "at", "be", "an", "that", "this","it","are","those","what"];
     return array_diff($words, $stop_words);
 }
 
